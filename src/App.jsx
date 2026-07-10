@@ -151,7 +151,11 @@ function App() {
             I started programming in 2015 just before high school. 
             After a brief peek into digital marketing, I came back to programming and worked full-time as a Full-Stack Developer for a few months. 
             Along the way, I created several side projects using Django, React, Next.js, and Node.js. 
-            I am currently studying at FI MUNI.
+            I am currently studying at{' '}
+            <a href="https://www.fi.muni.cz/" target="_blank" rel="noreferrer">
+              FI MUNI
+            </a>
+            .
           </p>
         </section>
       </div>
