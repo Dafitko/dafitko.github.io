@@ -110,7 +110,7 @@ function App() {
           <h2>Projects</h2>
           <div className="projects">
             {projects.map((p) => (
-              <a className="project" href={p.href} key={p.name}>
+              <a className="project" href={p.href} key={p.name} target="_blank" rel="noreferrer">
                 <div className="project-top">
                   <h3>{p.name}</h3>
                   <span className="arrow">→</span>
