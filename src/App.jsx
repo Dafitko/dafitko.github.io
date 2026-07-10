@@ -40,7 +40,7 @@ const projects = [
     name: 'Commerce Auction App',
     description:
       'An eBay-style auction platform where users can create listings, place bids, watch items, and comment. Built with Django and deployed on Railway.',
-    credentials: 'username: test / password: test',
+    credentials: 'username: harry / password: test',
     href: 'https://commerce.pirchaladavid.dev/',
     stack: ['Django', 'Python', 'SQLite'],
   },
