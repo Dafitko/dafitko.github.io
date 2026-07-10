@@ -37,10 +37,10 @@ const experience = [
 
 const projects = [
   {
-    name: 'Project One',
-    description: 'Short description of the project and the problem it solves.',
-    href: '#',
-    stack: ['React', 'Node.js', 'PostgreSQL'],
+    name: 'Commerce Auction App',
+    description: 'An eBay-style auction platform where users can create listings, place bids, watch items, and comment. Built with Django and deployed on Railway.',
+    href: 'commerce.pirchaladavid.dev',
+    stack: ['Django', 'Python', 'SQLite'],
   },
 ]
 
