@@ -38,7 +38,10 @@ const experience = [
 const projects = [
   {
     name: 'Commerce Auction App',
-    description: 'An eBay-style auction platform where users can create listings, place bids, watch items, and comment. Built with Django and deployed on Railway.',
+    description: 'An eBay-style auction platform where users can create listings, \
+    place bids, watch items, and comment. Built with Django and deployed on Railway. \
+    username: test \
+    password: test',
     href: 'https://commerce.pirchaladavid.dev/',
     stack: ['Django', 'Python', 'SQLite'],
   },
