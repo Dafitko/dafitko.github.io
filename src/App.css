@@ -193,6 +193,13 @@
   font-size: 17px;
 }
 
+.project .credentials {
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--accent);
+}
+
 .project .arrow {
   color: var(--accent);
   font-family: var(--mono);

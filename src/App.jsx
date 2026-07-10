@@ -38,10 +38,9 @@ const experience = [
 const projects = [
   {
     name: 'Commerce Auction App',
-    description: 'An eBay-style auction platform where users can create listings, \
-    place bids, watch items, and comment. Built with Django and deployed on Railway. \
-    username: test \
-    password: test',
+    description:
+      'An eBay-style auction platform where users can create listings, place bids, watch items, and comment. Built with Django and deployed on Railway.',
+    credentials: 'username: test / password: test',
     href: 'https://commerce.pirchaladavid.dev/',
     stack: ['Django', 'Python', 'SQLite'],
   },
@@ -119,6 +118,7 @@ function App() {
                   <span className="arrow">→</span>
                 </div>
                 <p>{p.description}</p>
+                {p.credentials && <p className="credentials">{p.credentials}</p>}
                 <div className="stack">
                   {p.stack.map((s) => (
                     <span key={s}>{s}</span>
