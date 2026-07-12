@@ -31,7 +31,7 @@ const experience = [
   },
   {
     title: 'Currently Learning',
-    items: ['TypeScript'],
+    items: ['TypeScript, React'],
   },
 ]
 
@@ -42,6 +42,7 @@ const projects = [
       'An eBay-style auction platform where users can create listings, place bids, watch items, and comment. Built with Django and deployed on Railway.',
     credentials: 'username: harry / password: test',
     href: 'https://commerce.pirchaladavid.dev/',
+    github: 'https://github.com/Dafitko/commerce-auction-app',
     stack: ['Django', 'Python', 'SQLite'],
   },
 ]
@@ -72,7 +73,7 @@ function App() {
             Dávid Pirchala
           </h1>
           <p>
-            Full-Stack Developer and Computer Science student at Masaryk University with a few months of 
+            Full-Stack Developer and Computer Science student at Masaryk University with a few months of
             practical experience designing, building, deploying, and iterating on web applications.
           </p>
 
@@ -112,19 +113,46 @@ function App() {
           <h2>Projects</h2>
           <div className="projects">
             {projects.map((p) => (
-              <a className="project" href={p.href} key={p.name} target="_blank" rel="noreferrer">
+              <div
+                className="project"
+                key={p.name}
+                onClick={(e) => {
+                  if (e.target.closest('.project-github-link')) {
+                    return
+                  }
+                  window.open(p.href, '_blank', 'noreferrer')
+                }}
+                style={{ cursor: 'pointer' }}
+              >
                 <div className="project-top">
                   <h3>{p.name}</h3>
                   <span className="arrow">→</span>
                 </div>
                 <p>{p.description}</p>
                 {p.credentials && <p className="credentials">{p.credentials}</p>}
-                <div className="stack">
-                  {p.stack.map((s) => (
-                    <span key={s}>{s}</span>
-                  ))}
+                <div className="project-bottom">
+                  <div className="stack">
+                    {p.stack.map((s) => (
+                      <span key={s}>{s}</span>
+                    ))}
+                  </div>
+                  {p.github && (
+                    <a
+                      className="project-github-link"
+                      href={p.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      title="View Source Code"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <svg className="link-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.1.82-.26.82-.58v-2.2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.37-1.33-1.74-1.33-1.74-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.24 1.83 1.24 1.07 1.82 2.8 1.3 3.48 1 .1-.77.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .3Z" />
+                      </svg>
+                      <span>GitHub</span>
+                    </a>
+                  )}
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </section>
@@ -148,9 +176,9 @@ function App() {
         <section className="section" id="about">
           <h2>About</h2>
           <p className="about-text">
-            I started programming in 2015 just before high school. 
-            After a brief peek into digital marketing, I came back to programming and worked full-time as a Full-Stack Developer for a few months. 
-            Along the way, I created several side projects using Django, React, Next.js, and Node.js. 
+            I started programming in 2015 just before high school.
+            After a brief peek into digital marketing, I came back to programming and worked full-time as a Full-Stack Developer for a few months.
+            Along the way, I created several side projects using Django, React, Next.js, and Node.js.
             I am currently studying at{' '}
             <a href="https://www.fi.muni.cz/" target="_blank" rel="noreferrer">
               FI MUNI
