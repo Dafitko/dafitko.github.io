@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 
 const STAR_COUNT = 400
@@ -11,6 +12,59 @@ const stars = Array.from({ length: STAR_COUNT }).map((_, i) => ({
   opacity: 0.2 + Math.random() * 0.6,
   key: i,
 }))
+
+function CopyButton({ text }) {
+  const [copied, setCopied] = useState(false)
+
+  const handleCopy = (e) => {
+    e.stopPropagation()
+    navigator.clipboard.writeText(text)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  return (
+    <button
+      className={`copy-btn ${copied ? 'copied' : ''}`}
+      onClick={handleCopy}
+      title="Copy to clipboard"
+      type="button"
+    >
+      {copied ? (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+      ) : (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+        </svg>
+      )}
+    </button>
+  )
+}
+
+function ProjectCredentials({ credentials }) {
+  if (!credentials) return null
+
+  // Format: "username: harry / password: test"
+  const parts = credentials.split(' / ')
+  return (
+    <div className="credentials-wrapper" onClick={(e) => e.stopPropagation()}>
+      {parts.map((part) => {
+        const [key, value] = part.split(': ')
+        if (!key || !value) return null
+        return (
+          <span key={key} className="credential-item">
+            <span className="credential-label">{key.trim()}:</span>
+            <span className="credential-value">{value.trim()}</span>
+            <CopyButton text={value.trim()} />
+          </span>
+        )
+      })}
+    </div>
+  )
+}
 
 const experience = [
   {
@@ -48,9 +102,12 @@ const projects = [
   {
     name: 'Mail Client',
     description:
-      'A single-page email client designed to manage mail inbox, sent messages, and archives. Interacts dynamically with a custom Django email API for real-time updates.',
-    stack: ['React', 'JavaScript', 'Django', 'Bootstrap 4'],
-    status: 'in-progress',
+      'A single-page email client utilizing Vanilla JavaScript to communicate asynchronously with a Django REST API. Handles composing, reading, archiving, and replying to emails with real-time DOM updates and zero page refreshes.',
+    credentials: 'username: harry@hogwarts.edu / password: test',
+    href: 'https://mail.pirchaladavid.dev/',
+    github: 'https://github.com/Dafitko/mail-project',
+    stack: ['JavaScript', 'Django', 'Bootstrap 4', 'SQLite'],
+    // status: 'in-progress',
   },
 ]
 
@@ -142,7 +199,7 @@ function App() {
                     {isClickable && <span className="arrow">→</span>}
                   </div>
                   <p>{p.description}</p>
-                  {p.credentials && <p className="credentials">{p.credentials}</p>}
+                  {p.credentials && <ProjectCredentials credentials={p.credentials} />}
                   <div className="project-bottom">
                     <div className="stack">
                       {p.stack.map((s) => (
