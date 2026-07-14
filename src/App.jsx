@@ -49,7 +49,7 @@ const projects = [
     name: 'Mail Client',
     description:
       'A single-page email client designed to manage mail inbox, sent messages, and archives. Interacts dynamically with a custom Django email API for real-time updates.',
-    stack: ['React', 'Vanilla JS', 'Django', 'Bootstrap 4'],
+    stack: ['React', 'JavaScript', 'Django', 'Bootstrap 4'],
     status: 'in-progress',
   },
 ]
