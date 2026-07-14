@@ -37,6 +37,7 @@ body {
     radial-gradient(ellipse 80% 50% at 50% -10%, rgba(139, 157, 255, 0.12), transparent),
     var(--bg);
   overflow-x: hidden;
+  isolation: isolate;
 }
 
 #root {
