@@ -17,6 +17,12 @@
   animation-delay: var(--delay, 0s);
 }
 
+@media (max-width: 768px) {
+  .stars span:nth-child(n+101) {
+    display: none;
+  }
+}
+
 @keyframes twinkle {
   0%, 100% { opacity: var(--o, 0.5); }
   50% { opacity: 0.05; }
@@ -207,6 +213,8 @@
   border: 1px solid rgba(245, 158, 11, 0.25);
   padding: 3px 8px;
   border-radius: 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .status-dot {
@@ -263,6 +271,8 @@
   text-decoration: none;
   transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease, transform 0.2s ease;
   z-index: 2;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .project-github-link:hover {
