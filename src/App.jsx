@@ -109,6 +109,12 @@ const projects = [
     stack: ['JavaScript', 'Django', 'Bootstrap 4', 'SQLite'],
     // status: 'in-progress',
   },
+  {
+    name: 'Network',
+    description:
+      'A Twitter-like social network platform where users can write text-based posts, follow other users, like/unlike posts, and edit posts in-place. Built with a Django backend and Vanilla JavaScript to handle dynamic updates without page refreshes.',
+    stack: ['Django', 'Python', 'JavaScript', 'SQLite'],
+  },
 ]
 
 function App() {
@@ -133,6 +139,7 @@ function App() {
 
       <div className="page">
         <section className="hero">
+          <div className="eyebrow">This website was built with React</div>
           <h1>
             Dávid Pirchala
           </h1>

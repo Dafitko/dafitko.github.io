@@ -450,6 +450,8 @@
 footer {
   padding-top: 8px;
   font-size: 13px;
-  color: var(--border);
+  color: var(--text);
+  opacity: 0.4;
   text-align: left;
+  font-family: var(--mono);
 }
